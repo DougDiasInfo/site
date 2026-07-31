@@ -1,0 +1,32 @@
+[
+    {
+        "titulo": "Introdução ao Sistema",
+        "categoria": "Treinamento",
+        "link": "https://youtu.be/dQw4w9WgXcQ"
+    },
+    {
+        "titulo": "Como configurar impressora",
+        "categoria": "Suporte",
+        "link": "https://youtu.be/abc123456"
+    },
+    {
+        "titulo": "Novidades do sistema",
+        "categoria": "Novidades",
+        "link": "https://www.youtube.com/watch?v=xyz987654"
+    },
+    {
+        "titulo": "Como instalar o sistema",
+        "categoria": "Treinamento",
+        "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "titulo": "Configuração de impressora",
+        "categoria": "Suporte",
+        "link": "https://youtu.be/abc123456"
+    },
+    {
+        "titulo": "Atualização 2026",
+        "categoria": "Novidades",
+        "link": "https://www.youtube.com/watch?v=xyz987654"
+    }
+]
