@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeos - DM Informática</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" class="logo" alt="DM Informática">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="programas.html">Programas</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="videos.html">Vídeos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <section class="page">
+        <h1>
+            Central de <span>Vídeos</span>
+        </h1>
+
+        <input 
+            id="buscaVideo"
+            class="busca"
+            placeholder="🔍 Pesquisar vídeos..."
+            type="text"
+        >
+
+        <div class="categorias">
+            <button onclick="filtrar('Todos')" class="ativo">Todos</button>
+            <button onclick="filtrar('Treinamento')">Treinamento</button>
+            <button onclick="filtrar('Suporte')">Suporte</button>
+            <button onclick="filtrar('Novidades')">Novidades</button>
+        </div>
+
+        <div id="contadorVideos" class="contador">
+            Carregando vídeos...
+        </div>
+
+        <div id="listaVideos" class="videos-grid">
+            <!-- Vídeos serão carregados aqui -->
+        </div>
+    </section>
+
+    <script src="js/videos.js"></script>
+</body>
+
+</html>
