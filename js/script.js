@@ -1,37 +1,43 @@
+// Atualização inteligente do js/script.js para suportar Mobile
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('particlesCanvas');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
-    const numberOfParticles = 65; // Densidade ideal para performance
+    
+    // Detecta se é mobile para ajustar a carga gráfica
+    const isMobile = window.innerWidth <= 768;
+    const numberOfParticles = isMobile ? 35 : 70; 
 
-    // Redimensiona o canvas conforme a janela
     function setCanvasSize() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
     setCanvasSize();
+
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-        setCanvasSize();
-        initParticles();
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            setCanvasSize();
+            initParticles();
+        }, 200);
     });
 
-    // Classe para gerenciar cada partícula
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2.5 + 1;
-            this.speedX = (Math.random() - 0.5) * 1.2;
-            this.speedY = (Math.random() - 0.5) * 1.2;
+            this.size = Math.random() * (isMobile ? 2 : 2.5) + 1;
+            this.speedX = (Math.random() - 0.5) * (isMobile ? 0.8 : 1.2);
+            this.speedY = (Math.random() - 0.5) * (isMobile ? 0.8 : 1.2);
         }
 
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
 
-            // Rebota nas bordas da tela
             if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
@@ -51,9 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Desenha linhas de conexão conectando nós próximos (Neural Mesh)
     function connectParticles() {
-        const maxDistance = 120;
+        const maxDistance = isMobile ? 90 : 120;
         for (let a = 0; a < particlesArray.length; a++) {
             for (let b = a; b < particlesArray.length; b++) {
                 const dx = particlesArray[a].x - particlesArray[b].x;
@@ -62,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (distance < maxDistance) {
                     const opacity = 1 - (distance / maxDistance);
-                    ctx.strokeStyle = `rgba(255, 107, 26, ${opacity * 0.25})`;
+                    ctx.strokeStyle = `rgba(255, 107, 26, ${opacity * 0.22})`;
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -73,15 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Loop de Animação em 60 FPS
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        particlesArray.forEach(particle => {
-            particle.update();
-            particle.draw();
+        particlesArray.forEach(p => {
+            p.update();
+            p.draw();
         });
-
         connectParticles();
         requestAnimationFrame(animate);
     }
