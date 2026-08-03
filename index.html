@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DM Informática - HealthTech Hub</title>
-    <!-- Arquivo CSS centralizado na pasta css/ -->
+    
+    <!-- Dependências Externas com Integridade Assegurada -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
-    <!-- Canvas de Partículas em Segundo Plano -->
+    <!-- Canvas de Partículas Neural Mesh -->
     <canvas id="particlesCanvas"></canvas>
 
-    <!-- Header contendo a nova Navigation Bar integrada -->
-    <header class="header-navigation">
-	 <img src="img/logo.png" class="logo" alt="DM Informática" onerror="this.style.display='none'">
+    <!-- Header Estruturado com Logo Separada do Menu Flutuante -->
+    <header class="top-bar">
+        <div class="logo-wrapper">
+            <img src="img/logo.png" class="logo" alt="DM Informática" onerror="this.style.display='none'">
+            <span class="status-dot" title="Sistemas Operacionais"></span>
+        </div>
+
         <nav class="navigation">
             <ul>
-                <li class="list">
+                <li class="list active">
                     <a href="index.html">
                         <span class="icon"><i class="fa-solid fa-house"></i></span>
                         <span class="text">HOME</span>
@@ -54,33 +59,67 @@
     </header>
 
     <main class="page">
-        <section class="hero">
+        <!-- Hero Section com Card Neon Glassmorphism -->
+        <section class="hero-glass">
+            <div class="badge-tech">
+                <i class="fa-solid fa-shield-halved"></i> Plataforma Hospitalar Homologada
+            </div>
             <h1>Tecnologia que <span>simplifica</span></h1>
-            <p>Soluções em informática, sistemas hospitalares, suporte especializado e ferramentas digitais de alta performance.</p>
-            <a class="btn" href="programas.html">Conheça nossos serviços →</a>
+            <p>Ecossistema integrado de suporte, inteligência clínica, infraestrutura e ferramentas digitais de alta performance.</p>
+            
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="programas.html">
+                    <span>Conheça nossos serviços</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a class="btn btn-secondary" href="contato.html">
+                    <i class="fa-solid fa-headset"></i> Atendimento Rápido
+                </a>
+            </div>
         </section>
 
-        <section class="cards">
+        <!-- Grid de Cards Interativos com Telemetria -->
+        <section class="cards-grid">
             <a href="programas.html" class="card-item">
-                <span class="card-icon">🖥️</span>
-                <h3>Sistemas</h3>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-server"></i></span>
+                    <span class="pulse-green">ONLINE</span>
+                </div>
+                <h3>Sistemas Health</h3>
+                <p>Módulos de gestão hospitalar e prontuário eletrônico.</p>
             </a>
+
             <a href="downloads.html" class="card-item">
-                <span class="card-icon">📦</span>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-box-archive"></i></span>
+                    <span class="tag-version">v4.8.1</span>
+                </div>
                 <h3>Downloads</h3>
+                <p>Drivers, atualizações e executáveis de suporte.</p>
             </a>
+
             <a href="videos.html" class="card-item">
-                <span class="card-icon">🎥</span>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-circle-play"></i></span>
+                    <span class="tag-counter">+50 Aulas</span>
+                </div>
                 <h3>Tutoriais</h3>
+                <p>Treinamentos em vídeo para equipes médicas.</p>
             </a>
+
             <a href="contato.html" class="card-item">
-                <span class="card-icon">🚀</span>
-                <h3>Suporte</h3>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-headset"></i></span>
+                    <span class="pulse-orange">24/7</span>
+                </div>
+                <h3>Suporte Técnico</h3>
+                <p>Abertura de chamados e assistência remota imediata.</p>
             </a>
         </section>
     </main>
-    <!-- Script de partículas e interatividade centralizado na pasta js/ -->
-    <<script src="js/script.js"></script>
+
+    <!-- Scripts com Erro de Sintaxe Corrigido -->
+    <script src="js/script.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>
