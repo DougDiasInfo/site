@@ -4,37 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Central de Vídeos - HealthTech Hub</title>
-    <!-- CSS principal unificado -->
+    
+    <!-- CSS Unificado e Específico -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/videos.css">
 </head>
 <body>
     <!-- Canvas de Partículas em Segundo Plano -->
     <canvas id="particlesCanvas"></canvas>
 
-    <header>
-        <img src="img/logo.png" class="logo" alt="HealthTech Logo" onerror="this.style.display='none'">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="programas.html">Programas</a>
-            <a href="downloads.html">Downloads</a>
-            <a href="videos.html" class="active">Vídeos</a>
-            <a href="contato.html">Contato</a>
+    <!-- Header com Logo e Magic Navigation Bar Separados -->
+    <header class="top-bar">
+        <div class="logo-wrapper">
+            <img src="img/logo.png" class="logo" alt="DM Informática" onerror="this.style.display='none'">
+            <span class="status-dot" title="Streaming Server On"></span>
+        </div>
+
+        <nav class="navigation">
+            <ul>
+                <li class="list">
+                    <a href="index.html">
+                        <span class="icon"><i class="fa-solid fa-house"></i></span>
+                        <span class="text">HOME</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="programas.html">
+                        <span class="icon"><i class="fa-solid fa-laptop-code"></i></span>
+                        <span class="text">SISTEMAS</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="downloads.html">
+                        <span class="icon"><i class="fa-solid fa-download"></i></span>
+                        <span class="text">BAIXAR</span>
+                    </a>
+                </li>
+                <li class="list active">
+                    <a href="videos.html">
+                        <span class="icon"><i class="fa-solid fa-play"></i></span>
+                        <span class="text">VÍDEOS</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="contato.html">
+                        <span class="icon"><i class="fa-solid fa-headset"></i></span>
+                        <span class="text">SUPORTE</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
         </nav>
     </header>
 
     <main class="page">
-        <h1>Central de <span>Vídeos</span></h1>
+        <!-- Banner de Título com Glassmorphism -->
+        <section class="video-hero-glass">
+            <div class="badge-tech">
+                <i class="fa-solid fa-clapperboard"></i> Treinamentos & Capacitação Clínica
+            </div>
+            <h1>Central de <span>Vídeos</span></h1>
+            <p>Acesse tutoriais de operação, protocolos de integração de sistemas e treinamentos em vídeo de alta definição.</p>
+        </section>
 
-        <!-- Contêiner de Filtros Responsivo para Mobile -->
+        <!-- Contêiner de Filtros Otimizado para Mobile -->
         <div class="filter-wrapper">
-            <input 
-                id="buscaVideo"
-                class="busca"
-                placeholder="🔍 Pesquisar vídeos, protocolos..."
-                type="text"
-                autocomplete="off"
-            >
+            <div class="input-search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input 
+                    id="buscaVideo"
+                    class="busca"
+                    placeholder="Pesquisar procedimentos, protocolos, módulos..."
+                    type="text"
+                    autocomplete="off"
+                >
+            </div>
 
             <select id="typeFilter" class="select-dark">
                 <option value="">Todas as Categorias</option>
@@ -42,17 +88,18 @@
         </div>
 
         <div id="contadorVideos" class="contador">
-            Carregando vídeos...
+            <i class="fa-solid fa-spinner fa-spin"></i> Indexando tutoriais médicos...
         </div>
 
-        <!-- Grid de Vídeos Otimizado -->
+        <!-- Grid de Vídeos Responsivo -->
         <section class="video-grid" id="videoGrid">
             <!-- Injetado dinamicamente via js/videos.js -->
         </section>
     </main>
 
-    <!-- Script de fundo (partículas) + Lógica de vídeos -->
+    <!-- Scripts da Aplicação -->
     <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
     <script src="js/videos.js"></script>
 </body>
 </html>
