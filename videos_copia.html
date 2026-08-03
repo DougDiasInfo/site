@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Vídeos - HealthTech Hub</title>
+    <!-- CSS principal adaptado com o visual Dark/Orange modernizado -->
+    <link rel="stylesheet" href="css/videos.css">
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" class="logo" alt="HealthTech Logo" onerror="this.style.display='none'">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="programas.html">Programas</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="videos.html" class="active">Vídeos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+   <main class="page">
+    <h1>Central de <span>Vídeos</span></h1>
+
+    <div class="filter-wrapper">
+        <input 
+            id="buscaVideo"
+            class="busca"
+            placeholder="🔍 Pesquisar vídeos..."
+            type="text"
+        >
+
+        <!-- Dropdown 'Todos os Tipos' perfeitamente visível e estilizado -->
+        <select id="typeFilter" class="select-dark">
+            <option value="">Todas as Categorias</option>
+        </select>
+    </div>
+
+    <div id="contadorVideos" class="contador">
+        Carregando vídeos...
+    </div>
+
+    <!-- Grid para injeção de cards via JS -->
+        <section class="video-grid" id="videoGrid">
+      <!-- Cards serão injetados aqui dinamicamente pelo JS -->
+    </section>
+</main>
+	
+
+    <script src="js/videos.js"></script>
+</body>
+</html>
