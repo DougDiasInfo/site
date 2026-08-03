@@ -1,85 +1,187 @@
-/* ESTRUTURA E FILTROS */
+/* ==========================================================================
+   HEALTH-TECH VIDEO HUB STYLES (videos.css)
+   ========================================================================== */
+
+/* BANNER DE VÍDEOS */
+.video-hero-glass {
+    background: rgba(18, 18, 18, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 35px 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.video-hero-glass h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.video-hero-glass h1 span {
+    color: var(--orange-primary, #ff6b1a);
+    text-shadow: 0 0 20px rgba(255, 107, 26, 0.4);
+}
+
+.video-hero-glass p {
+    color: #a0a0a0;
+    font-size: 1rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* CONTAINER DE FILTROS E PESQUISA */
 .filter-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    max-width: 850px;
-    margin: 25px auto;
+    max-width: 900px;
+    margin: 0 auto 20px;
     width: 100%;
 }
 
-.filter-wrapper .busca {
-    margin: 0;
+.input-search-box {
+    position: relative;
     flex: 2;
     min-width: 280px;
 }
 
-/* DROP-DOWN SELECT ESTILIZADO */
+.input-search-box .search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--orange-primary, #ff6b1a);
+    font-size: 1rem;
+}
+
+.filter-wrapper .busca {
+    width: 100%;
+    background: rgba(18, 18, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    padding: 15px 20px 15px 48px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.filter-wrapper .busca:focus {
+    border-color: var(--orange-primary, #ff6b1a);
+    box-shadow: 0 0 20px rgba(255, 107, 26, 0.35);
+}
+
+/* SELECT ESTILIZADO */
 .select-dark {
-    background: var(--dark-card);
-    color: var(--text);
-    border: 2px solid var(--orange);
+    background: rgba(18, 18, 18, 0.85);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 15px 20px;
-    border-radius: var(--radius-sm);
-    font-size: 15px;
+    border-radius: 30px;
+    font-size: 0.95rem;
     font-weight: 600;
     outline: none;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 220px;
     appearance: none;
     -webkit-appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6b1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 18px;
-    padding-right: 45px;
-    flex: 1;
-    min-width: 220px;
+    background-position: right 18px center;
+    background-size: 16px;
+    padding-right: 48px;
+    backdrop-filter: blur(10px);
 }
 
 .select-dark:focus {
-    box-shadow: 0 0 20px var(--orange-glow);
+    border-color: var(--orange-primary, #ff6b1a);
+    box-shadow: 0 0 20px rgba(255, 107, 26, 0.35);
 }
 
 .select-dark option {
     background: #111111;
     color: #ffffff;
-    padding: 10px;
 }
 
-/* GRID DE VÍDEOS */
+/* CONTADOR DE VÍDEOS */
+.contador {
+    text-align: center;
+    color: #888888;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* GRID E CARDS DE VÍDEO */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 25px;
-    margin-top: 20px;
 }
 
 .video-card {
-    background: rgba(22, 22, 22, 0.85); /* Vidro sutil sob o canvas */
-    backdrop-filter: blur(8px);
-    border-radius: var(--radius-lg);
+    background: rgba(18, 18, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid var(--gray);
-    transition: var(--transition);
+    backdrop-filter: blur(12px);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    text-align: left;
 }
 
 .video-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 30px var(--orange-glow);
-    border-color: var(--orange);
+    border-color: var(--orange-primary, #ff6b1a);
+    box-shadow: 0 12px 30px rgba(255, 107, 26, 0.3);
 }
 
-.video-card img {
+.video-thumb-wrapper {
+    position: relative;
     width: 100%;
     aspect-ratio: 16/9;
-    object-fit: cover;
+    overflow: hidden;
     background: #000;
+}
+
+.video-thumb-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.video-card:hover .video-thumb-wrapper img {
+    transform: scale(1.06);
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.play-overlay i {
+    font-size: 2.5rem;
+    color: #ffffff;
+    filter: drop-shadow(0 0 10px rgba(255, 107, 26, 0.8));
+}
+
+.video-card:hover .play-overlay {
+    opacity: 1;
 }
 
 .video-info {
@@ -89,73 +191,64 @@
     flex-grow: 1;
 }
 
-.categoria-badge {
+.video-category {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--orange-primary, #ff6b1a);
+    background: rgba(255, 107, 26, 0.12);
+    border: 1px solid rgba(255, 107, 26, 0.25);
+    padding: 4px 10px;
+    border-radius: 12px;
     align-self: flex-start;
-    background: rgba(255, 107, 26, 0.15);
-    color: var(--orange);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    border: 1px solid rgba(255, 107, 26, 0.3);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     text-transform: uppercase;
 }
 
 .video-info h3 {
     font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
     line-height: 1.4;
-    color: var(--text);
-    margin-bottom: 12px;
 }
 
-.tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+.video-info p {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    line-height: 1.5;
     margin-bottom: 18px;
-}
-
-.tag {
-    font-size: 0.75rem;
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--gray-light);
-    padding: 3px 8px;
-    border-radius: 6px;
-    border: 1px solid #222;
 }
 
 .btn-watch {
     margin-top: auto;
-    padding: 12px 20px;
-    border-radius: var(--radius-sm);
-    background: var(--orange);
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--orange-primary, #ff6b1a);
+    color: #ffffff;
     text-decoration: none;
-    text-align: center;
     font-weight: 700;
-    font-size: 14px;
-    transition: var(--transition);
-    display: block;
-    min-height: 48px; /* Otimizado para toque humano no mobile */
-    line-height: 24px;
+    font-size: 0.9rem;
+    padding: 12px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    min-height: 44px;
 }
 
 .btn-watch:hover {
-    background: var(--orange-hover);
-    box-shadow: 0 0 20px var(--orange-glow);
+    background: #ff8c42;
+    box-shadow: 0 0 15px rgba(255, 107, 26, 0.5);
 }
 
-/* ==========================================================================
-   OTIMIZAÇÃO MOBILE-FIRST (SMARTPHONES E TABLETS)
-   ========================================================================== */
+/* MOBILE ADAPTATION */
 @media (max-width: 768px) {
-    .page {
-        padding: 20px 4% 60px;
+    .video-hero-glass {
+        padding: 25px 15px;
     }
 
-    h1 {
-        font-size: 32px;
+    .video-hero-glass h1 {
+        font-size: 2rem;
     }
 
     .filter-wrapper {
@@ -163,30 +256,14 @@
         gap: 12px;
     }
 
-    .filter-wrapper .busca, 
+    .input-search-box, 
     .select-dark {
         width: 100%;
         min-width: 100%;
-        font-size: 16px; /* Evita zoom automático incômodo no Safari iOS */
+        font-size: 16px; /* Evita zoom automático no Safari iOS */
     }
 
     .video-grid {
-        grid-template-columns: 1fr; /* Card ocupando 100% da largura da tela */
-        gap: 20px;
-    }
-
-    .video-card:hover {
-        transform: translateY(-4px); /* Animação mais suave em telas de touch */
-    }
-
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    nav a {
-        padding: 6px 12px;
-        font-size: 13px;
+        grid-template-columns: 1fr;
     }
 }
