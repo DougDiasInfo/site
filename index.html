@@ -5,20 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DM Informática - HealthTech Hub</title>
     <!-- Arquivo CSS centralizado na pasta css/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
     <!-- Canvas de Partículas em Segundo Plano -->
     <canvas id="particlesCanvas"></canvas>
 
-    <header>
-        <img src="img/logo.png" class="logo" alt="DM Informática" onerror="this.style.display='none'">
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="programas.html">Programas</a>
-            <a href="downloads.html">Downloads</a>
-            <a href="videos.html">Vídeos</a>
-            <a href="contato.html">Contato</a>
+    <!-- Header contendo a nova Navigation Bar integrada -->
+    <header class="header-navigation">
+	 <img src="img/logo.png" class="logo" alt="DM Informática" onerror="this.style.display='none'">
+        <nav class="navigation">
+            <ul>
+                <li class="list">
+                    <a href="index.html">
+                        <span class="icon"><i class="fa-solid fa-house"></i></span>
+                        <span class="text">HOME</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="programas.html">
+                        <span class="icon"><i class="fa-solid fa-laptop-code"></i></span>
+                        <span class="text">SISTEMAS</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="downloads.html">
+                        <span class="icon"><i class="fa-solid fa-download"></i></span>
+                        <span class="text">BAIXAR</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="videos.html">
+                        <span class="icon"><i class="fa-solid fa-play"></i></span>
+                        <span class="text">VÍDEOS</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="contato.html">
+                        <span class="icon"><i class="fa-solid fa-headset"></i></span>
+                        <span class="text">SUPORTE</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
         </nav>
     </header>
 
@@ -49,6 +80,7 @@
         </section>
     </main>
     <!-- Script de partículas e interatividade centralizado na pasta js/ -->
-    <script src="js/script.js"></script>
+    <<script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
