@@ -1,32 +1,34 @@
 [
-    {
-        "titulo": "Introdução ao Sistema",
-        "categoria": "Treinamento",
-        "link": "https://youtu.be/dQw4w9WgXcQ"
-    },
-    {
-        "titulo": "Como configurar impressora",
-        "categoria": "Suporte",
-        "link": "https://youtu.be/abc123456"
-    },
-    {
-        "titulo": "Novidades do sistema",
-        "categoria": "Novidades",
-        "link": "https://www.youtube.com/watch?v=xyz987654"
-    },
-    {
-        "titulo": "Como instalar o sistema",
-        "categoria": "Treinamento",
-        "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    },
-    {
-        "titulo": "Configuração de impressora",
-        "categoria": "Suporte",
-        "link": "https://youtu.be/abc123456"
-    },
-    {
-        "titulo": "Atualização 2026",
-        "categoria": "Novidades",
-        "link": "https://www.youtube.com/watch?v=xyz987654"
-    }
+  {
+    "id": "v1",
+    "titulo": "Treinamento de Higienização de Mãos e Controle de Infecção Hospitalar",
+    "link": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumb": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&q=80",
+    "tipo": "Treinamento Interno",
+    "palavrasChave": ["higienização", "infecção", "segurança do paciente", "protocolo"]
+  },
+  {
+    "id": "v2",
+    "titulo": "Introdução ao Prontuário Eletrônico e Integração FHIR",
+    "link": "https://www.w3schools.com/html/movie.mp4",
+    "thumb": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+    "tipo": "Tecnologia",
+    "palavrasChave": ["FHIR", "HL7", "PEP", "interoperabilidade"]
+  },
+  {
+    "id": "v3",
+    "titulo": "Protocolo ALS: Atendimento Avançado de Vida em Cardiologia",
+    "link": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumb": "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&q=80",
+    "tipo": "Emergência",
+    "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
+  },
+  {
+    "id": "v3",
+    "titulo": "Protocolo ALS: Atendimento Avançado de Vida em Cardiologia",
+    "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumb": "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&q=80",
+    "tipo": "Emergência",
+    "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
+  }
 ]
