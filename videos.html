@@ -2,12 +2,16 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Central de Vídeos - HealthTech Hub</title>
-    <!-- CSS principal adaptado com o visual Dark/Orange modernizado -->
+    <!-- CSS principal unificado -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/videos.css">
 </head>
 <body>
+    <!-- Canvas de Partículas em Segundo Plano -->
+    <canvas id="particlesCanvas"></canvas>
+
     <header>
         <img src="img/logo.png" class="logo" alt="HealthTech Logo" onerror="this.style.display='none'">
         <nav>
@@ -19,34 +23,36 @@
         </nav>
     </header>
 
-   <main class="page">
-    <h1>Central de <span>Vídeos</span></h1>
+    <main class="page">
+        <h1>Central de <span>Vídeos</span></h1>
 
-    <div class="filter-wrapper">
-        <input 
-            id="buscaVideo"
-            class="busca"
-            placeholder="🔍 Pesquisar vídeos..."
-            type="text"
-        >
+        <!-- Contêiner de Filtros Responsivo para Mobile -->
+        <div class="filter-wrapper">
+            <input 
+                id="buscaVideo"
+                class="busca"
+                placeholder="🔍 Pesquisar vídeos, protocolos..."
+                type="text"
+                autocomplete="off"
+            >
 
-        <!-- Dropdown 'Todos os Tipos' perfeitamente visível e estilizado -->
-        <select id="typeFilter" class="select-dark">
-            <option value="">Todas as Categorias</option>
-        </select>
-    </div>
+            <select id="typeFilter" class="select-dark">
+                <option value="">Todas as Categorias</option>
+            </select>
+        </div>
 
-    <div id="contadorVideos" class="contador">
-        Carregando vídeos...
-    </div>
+        <div id="contadorVideos" class="contador">
+            Carregando vídeos...
+        </div>
 
-    <!-- Grid para injeção de cards via JS -->
+        <!-- Grid de Vídeos Otimizado -->
         <section class="video-grid" id="videoGrid">
-      <!-- Cards serão injetados aqui dinamicamente pelo JS -->
-    </section>
-</main>
-	
+            <!-- Injetado dinamicamente via js/videos.js -->
+        </section>
+    </main>
 
+    <!-- Script de fundo (partículas) + Lógica de vídeos -->
+    <script src="js/script.js"></script>
     <script src="js/videos.js"></script>
 </body>
 </html>
