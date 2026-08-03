@@ -1,33 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const videoGrid = document.getElementById('videoGrid');
-  const searchInput = document.getElementById('searchInput');
+  // Mapeamento correto dos IDs do seu HTML
+  const buscaInput = document.getElementById('buscaVideo');
   const typeFilter = document.getElementById('typeFilter');
+  const videoGrid = document.getElementById('videoGrid');
+  const contadorVideos = document.getElementById('contadorVideos');
 
   let videosData = [];
 
-  // 1. Carrega os dados do arquivo JSON
+  // Helper para remover acentos e converter para caixa baixa
+  function normalizeText(text) {
+    if (!text) return '';
+    return text
+      .toString()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
+  // 1. Carregamento do catálogo JSON
   fetch('dados/videos.json')
     .then(response => {
       if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.statusText}`);
+        throw new Error(`Erro HTTP: ${response.status}`);
       }
       return response.json();
     })
     .then(data => {
       videosData = data;
-      populateTypeFilter(data);
-      renderVideos(data);
+      populateTypeFilter(videosData);
+      applyFilters(); // Renderiza inicialmente
     })
     .catch(error => {
-      console.error('Erro ao carregar o catálogo de vídeos:', error);
-      videoGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: red;">
-        Falha ao carregar a biblioteca de vídeos.
-      </p>`;
+      console.error('Erro ao carregar os vídeos:', error);
+      if (videoGrid) {
+        videoGrid.innerHTML = `
+          <div class="sem-resultados">
+            ⚠️ Erro ao carregar a biblioteca de vídeos. Verifique se o arquivo dados/videos.json existe.
+          </div>`;
+      }
+      if (contadorVideos) contadorVideos.textContent = 'Erro de carregamento.';
     });
 
-  // 2. Preenche o Dropdown de Tipos dinamicamente
+  // 2. Preenche o Dropdown de Categorias
   function populateTypeFilter(videos) {
-    const tipos = [...new Set(videos.map(v => v.tipo))];
+    if (!typeFilter) return;
+
+    // Extrai tipos/categorias únicos suportando retrocompatibilidade de nomenclatura
+    const tipos = [...new Set(videos.map(v => v.tipo || v.categoria).filter(Boolean))];
+    
+    typeFilter.innerHTML = '<option value="">Todas as Categorias</option>';
+    
     tipos.forEach(tipo => {
       const option = document.createElement('option');
       option.value = tipo;
@@ -36,12 +58,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Renderiza os Cards de Vídeo
+  // 3. Aplicação unificada de Filtro e Busca
+  function applyFilters() {
+    const searchTerm = normalizeText(buscaInput ? buscaInput.value : '');
+    const selectedType = typeFilter ? typeFilter.value : '';
+
+    const filteredVideos = videosData.filter(video => {
+      // Suporte a 'tipo' ou 'categoria'
+      const videoTipo = video.tipo || video.categoria || '';
+      const matchesType = selectedType === '' || videoTipo === selectedType;
+
+      // Normaliza Título e Palavras-Chave (tags)
+      const titleNormalized = normalizeText(video.titulo);
+      
+      const tagsArray = Array.isArray(video.palavrasChave) 
+        ? video.palavrasChave 
+        : (Array.isArray(video.tags) ? video.tags : []);
+
+      const matchesKeyword = tagsArray.some(tag => 
+        normalizeText(tag).includes(searchTerm)
+      );
+
+      const matchesTitle = titleNormalized.includes(searchTerm);
+
+      return matchesType && (matchesTitle || matchesKeyword);
+    });
+
+    renderVideos(filteredVideos);
+    updateCounter(filteredVideos.length, videosData.length);
+  }
+
+  // 4. Renderização dos Cards no Grid
   function renderVideos(videos) {
+    if (!videoGrid) return;
     videoGrid.innerHTML = '';
 
     if (videos.length === 0) {
-      videoGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Nenhum vídeo encontrado.</p>';
+      videoGrid.innerHTML = `
+        <div class="sem-resultados">
+          Nenhum vídeo encontrado para os critérios selecionados.
+        </div>`;
       return;
     }
 
@@ -49,19 +105,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('article');
       card.className = 'video-card';
 
-      const tagsHTML = video.palavrasChave
+      const tipoText = video.tipo || video.categoria || 'Geral';
+      const tagsArray = Array.isArray(video.palavrasChave) 
+        ? video.palavrasChave 
+        : (Array.isArray(video.tags) ? video.tags : []);
+
+      const tagsHTML = tagsArray
         .map(tag => `<span class="tag">#${tag.trim()}</span>`)
         .join('');
 
       card.innerHTML = `
-        <div class="thumb-wrapper">
-          <img src="${video.thumb}" alt="${video.titulo}" loading="lazy">
-        </div>
+        <img src="${video.thumb || 'img/default-thumb.jpg'}" alt="${video.titulo}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x225/111/ff6b1a?text=Video+HealthTech'">
         <div class="video-info">
-          <span class="badge-tipo">${video.tipo}</span>
+          <span class="categoria-badge">${tipoText}</span>
           <h3>${video.titulo}</h3>
           <div class="tags-container">${tagsHTML}</div>
-          <a href="${video.link}" target="_blank" class="btn-watch">Assistir Vídeo</a>
+          <a href="${video.link}" target="_blank" rel="noopener noreferrer" class="btn-watch">Assistir Vídeo</a>
         </div>
       `;
 
@@ -69,26 +128,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Lógica de Busca e Filtro Unificados
-  function filterVideos() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const selectedType = typeFilter.value;
-
-    const filtered = videosData.filter(video => {
-      const matchesType = selectedType === '' || video.tipo === selectedType;
-
-      const titleMatch = video.titulo.toLowerCase().includes(searchTerm);
-      const keyMatch = video.palavrasChave.some(kw => 
-        kw.toLowerCase().includes(searchTerm)
-      );
-
-      return matchesType && (titleMatch || keyMatch);
-    });
-
-    renderVideos(filtered);
+  // 5. Atualização do Contador
+  function updateCounter(filteredCount, totalCount) {
+    if (!contadorVideos) return;
+    if (filteredCount === totalCount) {
+      contadorVideos.textContent = `Exibindo todos os ${totalCount} vídeos`;
+    } else {
+      contadorVideos.textContent = `Exibindo ${filteredCount} de ${totalCount} vídeos localizados`;
+    }
   }
 
-  // Listeners de Eventos
-  searchInput.addEventListener('input', filterVideos);
-  typeFilter.addEventListener('change', filterVideos);
+  // Registo de Listeners Reativos
+  if (buscaInput) {
+    buscaInput.addEventListener('input', applyFilters);
+  }
+  if (typeFilter) {
+    typeFilter.addEventListener('change', applyFilters);
+  }
 });
