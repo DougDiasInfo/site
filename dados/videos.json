@@ -24,11 +24,43 @@
     "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
   },
   {
-    "id": "v3",
+    "id": "v4",
     "titulo": "Protocolo ALS: Atendimento Avançado de Vida em Cardiologia",
     "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfFz74H4lJIBZZgd9KPKLz8Gt_iJJruB3HshpMe9xIjg&s=10",
     "tipo": "Emergência",
+    "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
+  }
+  {
+    "id": "v5",
+    "titulo": "Treinamento de Higienização de Mãos e Controle de Infecção Hospitalar",
+    "link": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumb": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&q=80",
+    "tipo": "Treinamento Interno",
+    "palavrasChave": ["higienização", "infecção", "segurança do paciente", "protocolo"]
+  },
+  {
+    "id": "v6",
+    "titulo": "Introdução ao Prontuário Eletrônico e Integração FHIR",
+    "link": "https://www.w3schools.com/html/movie.mp4",
+    "thumb": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
+    "tipo": "Aprendizados",
+    "palavrasChave": ["FHIR", "HL7", "PEP", "interoperabilidade"]
+  },
+  {
+    "id": "v7",
+    "titulo": "Protocolo ALS: Atendimento Avançado de Vida em Cardiologia",
+    "link": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxSMUJl73_VZ04IXYb1R6mqkzOVDuCILG8MQvb83cIGA&s=10",
+    "tipo": "Segurança",
+    "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
+  },
+  {
+    "id": "v8",
+    "titulo": "Protocolo ALS: Atendimento Avançado de Vida em Cardiologia",
+    "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfFz74H4lJIBZZgd9KPKLz8Gt_iJJruB3HshpMe9xIjg&s=10",
+    "tipo": "Aprendizados",
     "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
   }
 ]
