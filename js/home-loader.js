@@ -9,22 +9,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const data = await response.json();
 
-        // 1. Renderiza Vídeos em Destaque
-        if (data.latest_videos && videosContainer) {
-            videosContainer.innerHTML = data.latest_videos.map(v => `
-                <div class="video-card">
-                    <div class="video-thumb-wrapper">
-                        <img src="${v.thumb}" alt="${v.title}" loading="lazy">
-                        <div class="play-overlay"><i class="fa-solid fa-circle-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-category">${v.category}</span>
-                        <h3>${v.title}</h3>
-                        <a href="${v.url}" class="btn-watch"><i class="fa-solid fa-play"></i> Assistir Agora</a>
-                    </div>
-                </div>
-            `).join('');
-        }
+      //js/home-loader.js - Renderização dos vídeos com botão atualizado
+if (data.latest_videos && videosContainer) {
+    videosContainer.innerHTML = data.latest_videos.map(v => `
+        <div class="video-card">
+            <div class="video-thumb-wrapper">
+                <img src="${v.thumb}" alt="${v.title}" loading="lazy">
+                <div class="play-overlay"><i class="fa-solid fa-circle-play"></i></div>
+            </div>
+            <div class="video-info">
+                <span class="video-category">${v.category}</span>
+                <h3>${v.title}</h3>
+                <a href="${v.url}" class="btn-watch-glow">
+                    <span>Assistir Agora</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    `).join('');
+}
 
         // 2. Renderiza Artigos
         if (data.articles && articlesContainer) {
