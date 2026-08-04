@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-});
-
-    // Aplicação do efeito Haptic Feedback no clique (dispositivos móveis/touch)
+// Aplicação do efeito Haptic Feedback no clique (dispositivos móveis/touch)
     listItems.forEach(item => {
         item.addEventListener('click', function() {
             listItems.forEach(el => el.classList.remove('active'));
