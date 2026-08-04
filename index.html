@@ -125,6 +125,24 @@
         <div class="skeleton-card">Carregando artigos...</div>
     </div>
 </section>
+
+		<!-- 1. NA SEÇÃO DE DESTAQUES (Dentro da tag <main>): -->
+<section class="section-container">
+    <div class="section-header">
+        <h2><i class="fa-solid fa-fire text-orange"></i> Vídeos em <span>Destaque</span></h2>
+        <a href="videos.html" class="link-more">Ver todos os tutoriais →</a>
+    </div>
+
+    <!-- Contêiner de Ancoragem consumido pelo js/latest-videos.js -->
+    <div class="featured-videos-grid" id="latestVideosContainer">
+        <!-- Skeleton Loaders (Feedback visual durante a requisição) -->
+        <div class="video-card-skeleton"></div>
+        <div class="video-card-skeleton"></div>
+        <div class="video-card-skeleton"></div>
+    </div>
+</section>
+
+
 		
     </main>
 <!-- FAB WhatsApp - Suporte de TI -->
@@ -138,6 +156,7 @@
     <!-- Scripts com Erro de Sintaxe Corrigido -->
     <script src="js/script.js"></script>
     <script src="js/menu.js"></script>
-	<script src="js/home-loader.js"></script>
+	<script src="js/home-loader.js"></script><!-- 2. NO FINAL DO ARQUIVO (Antes do fechamento do </body>): -->
+<script src="js/latest-videos.js" defer></script>
 </body>
 </html>
