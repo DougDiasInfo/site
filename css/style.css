@@ -351,7 +351,7 @@ body {
 
 .dock-item:hover {
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(246, 113, 40, 0.5);
 }
 
 .dock-item.active {
