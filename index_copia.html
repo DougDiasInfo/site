@@ -4,51 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DM Informática - HealthTech Hub</title>
-    <!-- Arquivo CSS centralizado na pasta css/ -->
+    
+    <!-- Dependências Externas com Integridade Assegurada -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
-    <!-- Canvas de Partículas em Segundo Plano -->
+    <!-- Canvas de Partículas Neural Mesh -->
     <canvas id="particlesCanvas"></canvas>
+<!-- A Logo agora fica isolada e absoluta no canto superior esquerdo -->
+<div class="brand-corner">
+    <img src="img/logo.png" class="logo" alt="DM Informática">
+    <span class="status-dot pulse-green"></span>
+</div>
+    <!-- Header Estruturado com Logo Separada do Menu Flutuante -->
+    <nav class="floating-dock">
+    <a href="index.html" class="dock-item active">
+        <i class="fa-solid fa-house"></i>
+        <span class="dock-text">Home</span>
+    </a>
+    <a href="programas.html" class="dock-item">
+        <i class="fa-solid fa-server"></i>
+        <span class="dock-text">Sistemas</span>
+    </a>
+    <a href="downloads.html" class="dock-item">
+        <i class="fa-solid fa-box-archive"></i>
+        <span class="dock-text">Baixar</span>
+    </a>
+    <a href="videos.html" class="dock-item">
+        <i class="fa-solid fa-play"></i>
+        <span class="dock-text">Vídeos</span>
+    </a>
+    <a href="contato.html" class="dock-item">
+        <i class="fa-solid fa-headset"></i>
+        <span class="dock-text">Suporte</span>
+    </a>
+</nav>
 
-    <header>
-        <img src="img/logo.png" class="logo" alt="DM Informática" onerror="this.style.display='none'">
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="programas.html">Programas</a>
-            <a href="downloads.html">Downloads</a>
-            <a href="videos.html">Vídeos</a>
-            <a href="contato.html">Contato</a>
-        </nav>
     </header>
 
     <main class="page">
-        <section class="hero">
-            <h1>Tecnologia que <span>simplifica</span></h1>
-            <p>Soluções em informática, sistemas hospitalares, suporte especializado e ferramentas digitais de alta performance.</p>
-            <a class="btn" href="programas.html">Conheça nossos serviços →</a>
+        <!-- Hero Section com Card Neon Glassmorphism -->
+        <section class="hero-glass">
+            <div class="badge-tech">
+                <i class="fa-solid fa-shield-halved"></i> Plataforma Hospitalar Homologada
+            </div>
+            <h1>Tenologia que <span>simplifica</span></h1>
+            <p>Ecossistema integrado de suporte, inteligência clínica, infraestrutura e ferramentas digitais de alta performance.</p>
+            
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="programas.html">
+                    <span>Conheça nossos serviços</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a class="btn btn-secondary" href="contato.html">
+                    <i class="fa-solid fa-headset"></i> Atendimento Rápido
+                </a>
+            </div>
         </section>
 
-        <section class="cards">
+        <!-- Grid de Cards Interativos com Telemetria -->
+        <section class="cards-grid">
             <a href="programas.html" class="card-item">
-                <span class="card-icon">🖥️</span>
-                <h3>Sistemas</h3>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-server"></i></span>
+                    <span class="pulse-green">ONLINE</span>
+                </div>
+                <h3>Sistemas Health</h3>
+                <p>Módulos de gestão hospitalar e prontuário eletrônico.</p>
             </a>
+
             <a href="downloads.html" class="card-item">
-                <span class="card-icon">📦</span>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-box-archive"></i></span>
+                    <span class="tag-version">v4.8.1</span>
+                </div>
                 <h3>Downloads</h3>
+                <p>Drivers, atualizações e executáveis de suporte.</p>
             </a>
+
             <a href="videos.html" class="card-item">
-                <span class="card-icon">🎥</span>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-circle-play"></i></span>
+                    <span class="tag-counter">+50 Aulas</span>
+                </div>
                 <h3>Tutoriais</h3>
+                <p>Treinamentos em vídeo para equipes médicas.</p>
             </a>
+
             <a href="contato.html" class="card-item">
-                <span class="card-icon">🚀</span>
-                <h3>Suporte</h3>
+                <div class="card-header">
+                    <span class="card-icon-glow"><i class="fa-solid fa-headset"></i></span>
+                    <span class="pulse-orange">24/7</span>
+                </div>
+                <h3>Suporte Técnico</h3>
+                <p>Abertura de chamados e assistência remota imediata.</p>
             </a>
         </section>
     </main>
-    <!-- Script de partículas e interatividade centralizado na pasta js/ -->
+<!-- FAB WhatsApp - Suporte de TI -->
+<a href="https://wa.me/5531999291567?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20em%20um%20computador." 
+   class="whatsapp-fab" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   title="Solicitar Suporte via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+    <!-- Scripts com Erro de Sintaxe Corrigido -->
     <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
