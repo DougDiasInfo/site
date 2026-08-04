@@ -15,48 +15,34 @@
     <!-- Canvas de Partículas em Segundo Plano -->
     <canvas id="particlesCanvas"></canvas>
 
-    <!-- Header com Logo e Magic Navigation Bar Separados -->
-    <header class="top-bar">
-        <div class="logo-wrapper">
-            <img src="img/logo.png" class="logo" alt="DM Informática" onerror="this.style.display='none'">
-            <span class="status-dot" title="Streaming Server On"></span>
-        </div>
+    <nav class="floating-dock">
+    <a href="index.html" class="dock-item active">
+        <i class="fa-solid fa-house"></i>
+        <span class="dock-text">Home</span>
+    </a>
+    <a href="programas.html" class="dock-item">
+        <i class="fa-solid fa-server"></i>
+        <span class="dock-text">Sistemas</span>
+    </a>
+    <a href="downloads.html" class="dock-item">
+        <i class="fa-solid fa-box-archive"></i>
+        <span class="dock-text">Baixar</span>
+    </a>
+    <a href="videos.html" class="dock-item">
+        <i class="fa-solid fa-play"></i>
+        <span class="dock-text">Vídeos</span>
+    </a>
+    <a href="contato.html" class="dock-item">
+        <i class="fa-solid fa-headset"></i>
+        <span class="dock-text">Suporte</span>
+    </a>
+</nav>
 
-        <nav class="navigation">
-            <ul>
-                <li class="list">
-                    <a href="index.html">
-                        <span class="icon"><i class="fa-solid fa-house"></i></span>
-                        <span class="text">HOME</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="programas.html">
-                        <span class="icon"><i class="fa-solid fa-laptop-code"></i></span>
-                        <span class="text">SISTEMAS</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="downloads.html">
-                        <span class="icon"><i class="fa-solid fa-download"></i></span>
-                        <span class="text">BAIXAR</span>
-                    </a>
-                </li>
-                <li class="list active">
-                    <a href="videos.html">
-                        <span class="icon"><i class="fa-solid fa-play"></i></span>
-                        <span class="text">VÍDEOS</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="contato.html">
-                        <span class="icon"><i class="fa-solid fa-headset"></i></span>
-                        <span class="text">SUPORTE</span>
-                    </a>
-                </li>
-                <div class="indicator"></div>
-            </ul>
-        </nav>
+<!-- A Logo agora fica isolada e absoluta no canto superior esquerdo -->
+<div class="brand-corner">
+    <img src="img/logo.png" class="logo" alt="DM Informática">
+    <span class="status-dot pulse-green"></span>
+</div>
     </header>
 
     <main class="page">
