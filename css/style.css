@@ -254,6 +254,7 @@ body {
     padding: 4px 8px;
     border-radius: 8px;
 }
+
 /* ==========================================================================
    WHATSAPP FLOATING ACTION BUTTON (FAB)
    ========================================================================== */
@@ -300,6 +301,72 @@ body {
     }
 }
 
+/* LOGO ISOLADA */
+.brand-corner {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+}
+.brand-corner .logo { height: 40px; }
+
+/* FLOATING DOCK (CÁPSULA) */
+.floating-dock {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 5px;
+    z-index: 999;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.dock-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a0a0a0;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dock-item i {
+    font-size: 1.2rem;
+}
+
+.dock-item:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dock-item.active {
+    background: rgba(255, 107, 26, 0.15);
+    color: var(--orange-primary, #ff6b1a);
+    box-shadow: inset 0 0 10px rgba(255, 107, 26, 0.1);
+    border: 1px solid rgba(255, 107, 26, 0.3);
+}
+
+/* RESPONSIVO MOBILE - Esconde o texto e deixa só ícones */
+@media (max-width: 768px) {
+    .dock-text { display: none; }
+    .dock-item { padding: 12px 18px; }
+    .floating-dock { bottom: 15px; width: 90%; justify-content: space-around; }
+}
 
 
 
