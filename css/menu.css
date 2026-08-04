@@ -1,178 +1,66 @@
-/* ==========================================================================
-   HEALTH-TECH MAGIC NEON NAVIGATION MENU (ORANGE THEME)
-   ========================================================================== */
-
-:root {
-    --orange-primary: #ff6b1a;
-    --orange-glow: #ff8c42;
-    --orange-dark-glow: rgba(255, 107, 26, 0.4);
-    --nav-bg: rgba(18, 18, 18, 0.95);
-    --body-bg: #050505;
-}
-
-/* Header Container para Centralizar e Fixar */
-.header-navigation {
-    position: sticky;
+/* LOGO ISOLADA */
+.brand-corner {
+    position: absolute;
     top: 20px;
-    width: 100%;
+    left: 30px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1000;
-    padding: 0 10px;
+    gap: 12px;
+    z-index: 100;
 }
+.brand-corner .logo { height: 40px; }
 
-/* Base da Barra Flutuante */
-.navigation {
-    position: relative;
-    width: 440px;
-    height: 75px;
-    background: var(--nav-bg);
-    border-radius: 25px;
+/* FLOATING DOCK (CÁPSULA) */
+.floating-dock {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: 2px solid var(--orange-primary);
-    box-shadow: 
-        0 0 12px var(--orange-primary),
-        0 0 25px var(--orange-dark-glow),
-        inset 0 0 15px rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
+    padding: 8px 12px;
+    gap: 5px;
+    z-index: 999;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-.navigation ul {
+.dock-item {
     display: flex;
-    width: 350px;
-    margin: 0;
-    padding: 0;
-}
-
-.navigation ul li {
-    position: relative;
-    list-style: none;
-    width: 70px;
-    height: 70px;
-    z-index: 2;
-}
-
-.navigation ul li a {
-    position: relative;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
+    gap: 8px;
+    color: #a0a0a0;
     text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ícones */
-.navigation ul li a .icon {
-    position: relative;
-    display: block;
-    line-height: 75px;
-    font-size: 1.4em;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    color: var(--orange-glow);
-    text-shadow: 0 0 10px var(--orange-dark-glow);
+.dock-item i {
+    font-size: 1.2rem;
 }
 
-.navigation ul li.active a .icon {
-    transform: translateY(-32px);
+.dock-item:hover {
     color: #ffffff;
-    text-shadow: 
-        0 0 10px #ffffff,
-        0 0 20px var(--orange-primary),
-        0 0 35px var(--orange-glow);
+    background: rgba(255, 255, 255, 0.05);
 }
 
-/* Rótulo / Texto do Item */
-.navigation ul li a .text {
-    position: absolute;
-    color: #ffffff;
-    font-size: 0.68em;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(18px);
-    text-transform: uppercase;
-    text-shadow: 0 0 10px var(--orange-glow);
+.dock-item.active {
+    background: rgba(255, 107, 26, 0.15);
+    color: var(--orange-primary, #ff6b1a);
+    box-shadow: inset 0 0 10px rgba(255, 107, 26, 0.1);
+    border: 1px solid rgba(255, 107, 26, 0.3);
 }
 
-.navigation ul li.active a .text {
-    opacity: 1;
-    transform: translateY(10px);
-}
-
-/* Indicador Esférico Flutuante */
-.indicator {
-    position: absolute;
-    top: -50%;
-    width: 70px;
-    height: 70px;
-    background: radial-gradient(circle, var(--orange-hover), var(--orange-primary));
-    border-radius: 50%;
-    border: 5px solid var(--body-bg);
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
-    box-shadow: 
-        0 0 15px var(--orange-primary),
-        0 0 30px var(--orange-glow);
-}
-
-/* Curvatura contínua das bordas da fenda (Inverted Border Radius) */
-.indicator::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -22px;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border-top-right-radius: 20px;
-    box-shadow: 1px -10px 0 0 var(--body-bg);
-}
-
-.indicator::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -22px;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border-top-left-radius: 20px;
-    box-shadow: -1px -10px 0 0 var(--body-bg);
-}
-
-/* Animação do deslocamento vetorial */
-.navigation ul li:nth-child(1).active ~ .indicator { transform: translateX(calc(70px * 0)); }
-.navigation ul li:nth-child(2).active ~ .indicator { transform: translateX(calc(70px * 1)); }
-.navigation ul li:nth-child(3).active ~ .indicator { transform: translateX(calc(70px * 2)); }
-.navigation ul li:nth-child(4).active ~ .indicator { transform: translateX(calc(70px * 3)); }
-.navigation ul li:nth-child(5).active ~ .indicator { transform: translateX(calc(70px * 4)); }
-
-/* Adaptação Responsiva Mobile */
-@media (max-width: 500px) {
-    .navigation {
-        width: 100%;
-        max-width: 380px;
-    }
-    .navigation ul {
-        width: 100%;
-        justify-content: space-around;
-    }
-    .navigation ul li {
-        width: 60px;
-    }
-    .indicator {
-        width: 60px;
-        height: 60px;
-    }
-    .navigation ul li:nth-child(1).active ~ .indicator { transform: translateX(calc(60px * 0)); }
-    .navigation ul li:nth-child(2).active ~ .indicator { transform: translateX(calc(60px * 1)); }
-    .navigation ul li:nth-child(3).active ~ .indicator { transform: translateX(calc(60px * 2)); }
-    .navigation ul li:nth-child(4).active ~ .indicator { transform: translateX(calc(60px * 3)); }
-    .navigation ul li:nth-child(5).active ~ .indicator { transform: translateX(calc(60px * 4)); }
+/* RESPONSIVO MOBILE - Esconde o texto e deixa só ícones */
+@media (max-width: 768px) {
+    .dock-text { display: none; }
+    .dock-item { padding: 12px 18px; }
+    .floating-dock { bottom: 15px; width: 90%; justify-content: space-around; }
 }
