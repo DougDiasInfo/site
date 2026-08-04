@@ -1,10 +1,59 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><title>Programas</title><link rel="stylesheet" href="css/style.css"></head>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programas</title>
+    
+    <!-- Dependências Externas com Integridade Assegurada -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
 <body>
-<header><img src="img/logo.png" class="logo"><nav><a href="index.html">Home</a><a href="downloads.html">Downloads</a><a href="videos.html">Vídeos</a><a href="contato.html">Contato</a></nav></header>
-<section class="page">
-<h1>Programas</h1>
-<div class="cards"><div>Sistema Empresarial</div><div>Ferramentas</div><div>Soluções Personalizadas</div></div>
-</section>
+  <canvas id="particlesCanvas"></canvas>
+
+   
+
+        <!-- Doca Flutuante de Navegação -->
+<nav class="floating-dock">
+    <a href="index.html" class="dock-item active">
+        <i class="fa-solid fa-house"></i>
+        <span class="dock-text">Home</span>
+    </a>
+    <a href="programas.html" class="dock-item">
+        <i class="fa-solid fa-server"></i>
+        <span class="dock-text">Sistemas</span>
+    </a>
+    <a href="downloads.html" class="dock-item">
+        <i class="fa-solid fa-box-archive"></i>
+        <span class="dock-text">Baixar</span>
+    </a>
+    <a href="videos.html" class="dock-item">
+        <i class="fa-solid fa-play"></i>
+        <span class="dock-text">Vídeos</span>
+    </a>
+    <a href="contato.html" class="dock-item">
+        <i class="fa-solid fa-headset"></i>
+        <span class="dock-text">Suporte</span>
+    </a>
+</nav>
+
+<!-- A Logo agora fica isolada e absoluta no canto superior esquerdo -->
+<div class="brand-corner">
+    <img src="img/logo.png" class="logo" alt="DM Informática">
+    <span class="status-dot pulse-green"></span>
+</div>
+   
+<section class="page"><h1>Programas</h1><p>Drivers, utilitários e arquivos disponíveis.</p></section>
+  <a href="https://wa.me/5531999291567?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20em%20um%20computador." 
+   class="whatsapp-fab" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   title="Solicitar Suporte via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+    <!-- Scripts com Erro de Sintaxe Corrigido -->
+    <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
 </body></html>
