@@ -3,7 +3,7 @@
  * @param {string} jsonUrl - Caminho para o arquivo videos.json
  * @param {number} limit - Quantidade de itens a retornar (padrão: 3)
  */
-async function fetchLatestVideos(jsonUrl = 'data/videos.json', limit = 3) {
+async function fetchLatestVideos(jsonUrl = 'dados/videos.json', limit = 3) {
     try {
         const response = await fetch(jsonUrl);
         if (!response.ok) throw new Error(`Erro na requisição: ${response.status}`);
