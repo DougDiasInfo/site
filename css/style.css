@@ -499,6 +499,122 @@ body {
     gap: 10px;
 }
 
+/* ==========================================================================
+   ISOLAMENTO MOBILE & ESTILIZAÇÃO DO BOTÃO "ASSISTIR AGORA"
+   ========================================================================== */
+
+/* PREVENÇÃO GLOBAL DE ESTOURO DA VIEWPORT NO MOBILE */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* SEÇÃO DE DESTAQUES (AJUSTE DE ESPAÇAMENTO INFERIOR) */
+.section-container {
+    margin-top: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* GRID REORGANIZADO PARA NÃO QUEBRAR O MOBILE */
+.featured-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* CARD DE VÍDEO COMPACTO E RESPONSIVO */
+.featured-videos-grid .video-card {
+    background: rgba(18, 18, 18, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.featured-videos-grid .video-thumb-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Mantém a proporção exata sem distorcer no celular */
+    background: #000000;
+    overflow: hidden;
+}
+
+.featured-videos-grid .video-thumb-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ESTILIZAÇÃO DO BOTÃO "ASSISTIR AGORA" (GLOW HIGH-TECH) */
+.btn-watch-glow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 46px; /* Tamanho mínimo de toque ergonômico */
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff6b1a 0%, #ff8c42 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 107, 26, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.btn-watch-glow i {
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-watch-glow:hover {
+    background: linear-gradient(135deg, #ff8c42 0%, #ff6b1a 100%);
+    box-shadow: 0 6px 22px rgba(255, 107, 26, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-watch-glow:hover i {
+    transform: translateX(4px);
+}
+
+/* REGRAS CRÍTICAS PARA DISPOSITIVOS MÓVEIS (Telas <= 768px) */
+@media (max-width: 768px) {
+    .section-container {
+        padding-bottom: 110px; /* Garante que o último card não fique atrás da dock flutuante */
+    }
+
+    .featured-videos-grid {
+        grid-template-columns: 1fr; /* Força 1 coluna perfeita no celular */
+        gap: 16px;
+    }
+
+    .featured-videos-grid .video-info {
+        padding: 16px;
+    }
+
+    .featured-videos-grid .video-info h3 {
+        font-size: 1rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+
+    .btn-watch-glow {
+        min-height: 48px; /* Facilita o clique do polegar no celular */
+        font-size: 0.95rem;
+    }
+}
+
 /* RESPONSIVO MOBILE - Esconde o texto e deixa só ícones */
 @media (max-width: 768px) {
     .dock-text { display: none; }
