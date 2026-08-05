@@ -1,20 +1,4 @@
 {
-  "latest_videos": [
-    {
-      "id": "v1",
-      "title": "Integração PEP & Prontuário Eletrônico v4.8",
-      "category": "Sistemas",
-      "thumb": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
-      "url": "videos.html"
-    },
-    {
-      "id": "v2",
-      "title": "Configuração de Terminais de Beira-Leito",
-      "category": "Infraestrutura",
-      "thumb": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80",
-      "url": "videos.html"
-    }
-  ],
   "articles": [
     {
       "id": "a1",
