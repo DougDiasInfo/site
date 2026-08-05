@@ -1,52 +1,68 @@
 /**
- * Obtém os N vídeos mais recentes com base no valor numérico do 'id'
- * @param {string} jsonUrl - Caminho para o arquivo videos.json
- * @param {number} limit - Quantidade de itens a retornar (padrão: 3)
+ * Motor de Renderização de Vídeos em Destaque por ID Decrescente
  */
-async function fetchLatestVideos(jsonUrl = 'dados/videos.json', limit = 3) {
-    try {
-        const response = await fetch(jsonUrl);
-        if (!response.ok) throw new Error(`Erro na requisição: ${response.status}`);
-        
-        const videos = await response.json();
+async function fetchLatestVideos(limit = 3) {
+    // Array com possíveis caminhos para tolerar diferenças de pastas no servidor
+    const possiblePaths = ['dados/videos.json', 'data/videos.json', 'config/videos.json'];
+    let videos = null;
 
-        // 1. Ordena decrescente pelo campo 'id' (do maior ID para o menor)
-        // 2. Extrai os primeiros 'limit' elementos do array ordenado
-        const latestVideos = videos
-            .sort((a, b) => Number(b.id) - Number(a.id))
-            .slice(0, limit);
-
-        return latestVideos;
-    } catch (error) {
-        console.error("Falha ao obter os vídeos recentes:", error);
-        return [];
+    for (const path of possiblePaths) {
+        try {
+            const response = await fetch(path);
+            if (response.ok) {
+                videos = await response.json();
+                break; // Encontrou o arquivo, encerra a busca
+            }
+        } catch (e) {
+            // Tenta o próximo caminho
+        }
     }
+
+    if (!videos) {
+        throw new Error("Não foi possível localizar o arquivo videos.json nos diretórios padrões.");
+    }
+
+    // Ordena decrescente pelo id numérico e fatia os últimos N
+    return videos
+        .sort((a, b) => Number(b.id) - Number(a.id))
+        .slice(0, limit);
 }
 
-// Exemplo de uso e renderização dinâmica na Home
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('latestVideosContainer');
-    const recentVideos = await fetchLatestVideos('dados/videos.json', 3);
-
-    if (recentVideos.length === 0) {
-        container.innerHTML = '<p class="error-msg">Nenhum vídeo em destaque no momento.</p>';
+    
+    if (!container) {
+        console.warn("Elemento #latestVideosContainer não encontrado no DOM.");
         return;
     }
 
-    container.innerHTML = recentVideos.map(video => `
-        <div class="video-card" data-id="${video.id}">
-            <div class="video-thumb-wrapper">
-                <img src="${video.thumb}" alt="${video.title}" loading="lazy">
-                <div class="play-overlay"><i class="fa-solid fa-circle-play"></i></div>
+    try {
+        const recentVideos = await fetchLatestVideos(3);
+
+        if (!recentVideos || recentVideos.length === 0) {
+            container.innerHTML = '<p class="error-msg">Nenhum vídeo cadastrado no momento.</p>';
+            return;
+        }
+
+        container.innerHTML = recentVideos.map(video => `
+            <div class="video-card" data-id="${video.id}">
+                <div class="video-thumb-wrapper">
+                    <img src="${video.thumb}" alt="${video.title}" loading="lazy">
+                    <div class="play-overlay"><i class="fa-solid fa-circle-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <span class="video-category">${video.category || 'Tutorial'}</span>
+                    <h3>${video.title}</h3>
+                    <a href="${video.url || 'videos.html'}" class="btn-watch-glow">
+                        <span>Assistir Agora</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
             </div>
-            <div class="video-info">
-                <span class="video-category">${video.category || 'Tutorial'}</span>
-                <h3>${video.title}</h3>
-                <a href="${video.url}" class="btn-watch-glow">
-                    <span>Assistir Agora</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-    `).join('');
+        `).join('');
+
+    } catch (error) {
+        console.error("Erro no carregamento dos vídeos:", error);
+        container.innerHTML = '<p class="error-msg">Erro ao carregar os vídeos em destaque.</p>';
+    }
 });
