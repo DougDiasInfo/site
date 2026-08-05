@@ -62,5 +62,13 @@
     "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfFz74H4lJIBZZgd9KPKLz8Gt_iJJruB3HshpMe9xIjg&s=10",
     "tipo": "Aprendizados",
     "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
+  },
+  {
+    "id": "v8",
+    "titulo": "Protocolo ALS: Atendimento Avançado de Vida em Cardiologia",
+    "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvq8X4gilcGh7-l4V40qUHBNKFnPtFGhLTQW5RXtzMvA&s=10",
+    "tipo": "Aprendizados",
+    "palavrasChave": ["cardiologia", "parada cardíaca", "ressuscitação", "UTI"]
   }
 ]
