@@ -1,7 +1,7 @@
 /**
  * Motor de Renderização de Vídeos em Destaque por ID Decrescente
  */
-async function fetchLatestVideos(limit = 3) {
+async function fetchLatestVideos(limit = 4) {
     // Array com possíveis caminhos para tolerar diferenças de pastas no servidor
     const possiblePaths = ['dados/videos.json', 'data/videos.json', 'config/videos.json'];
     let videos = null;
