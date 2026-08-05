@@ -26,7 +26,7 @@ async function fetchLatestVideos(jsonUrl = 'dados/videos.json', limit = 3) {
 // Exemplo de uso e renderização dinâmica na Home
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('latestVideosContainer');
-    const recentVideos = await fetchLatestVideos('data/videos.json', 3);
+    const recentVideos = await fetchLatestVideos('dados/videos.json', 3);
 
     if (recentVideos.length === 0) {
         container.innerHTML = '<p class="error-msg">Nenhum vídeo em destaque no momento.</p>';
