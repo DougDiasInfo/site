@@ -1,53 +1,68 @@
-// js/home-loader.js - Injetor Dinâmico de Conteúdo da Home
-document.addEventListener('DOMContentLoaded', async () => {
-    const videosContainer = document.getElementById('latestVideosContainer');
-    const articlesContainer = document.getElementById('articlesContainer');
+// js/home-loader.js - Orquestrador Central da Home
+class HomeEngine {
+    constructor() {
+        this.init();
+    }
 
-    try {
-        const response = await fetch('config/home-content.json');
-        if (!response.ok) throw new Error('Falha ao carregar configurações.');
-        
-        const data = await response.json();
+    async init() {
+        // Carrega vídeos e artigos de forma isolada e concorrente
+        await Promise.allSettled([
+            this.loadLatestVideos(),
+            this.loadArticles()
+        ]);
+    }
 
-      //js/home-loader.js - Renderização dos vídeos com botão atualizado
-if (data.latest_videos && videosContainer) {
-    videosContainer.innerHTML = data.latest_videos.map(v => `
-        <div class="video-card">
-            <div class="video-thumb-wrapper">
-                <img src="${v.thumb}" alt="${v.title}" loading="lazy">
-                <div class="play-overlay"><i class="fa-solid fa-circle-play"></i></div>
-            </div>
-            <div class="video-info">
-                <span class="video-category">${v.category}</span>
-                <h3>${v.title}</h3>
-                <a href="${v.url}" class="btn-watch-glow">
-                    <span>Assistir Agora</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-    `).join('');
+    async loadLatestVideos() {
+        const container = document.getElementById('latestVideosContainer');
+        if (!container) return;
+
+        try {
+            const res = await fetch('dados/videos.json');
+            if (!res.ok) throw new Error('Falha HTTP');
+            const data = await res.json();
+            
+            const topVideos = data.sort((a, b) => Number(b.id) - Number(a.id)).slice(0, 3);
+            
+            container.innerHTML = topVideos.map(v => `
+                <div class="video-card">
+                    <div class="video-thumb-wrapper">
+                        <img src="${v.thumb}" alt="${v.title}">
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">${v.category || 'Sistema'}</span>
+                        <h3>${v.title}</h3>
+                        <a href="${v.url}" class="btn-watch-glow">Assistir Agora <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            `).join('');
+        } catch (err) {
+            container.innerHTML = '<p class="error-msg">Não foi possível carregar as novidades em vídeo.</p>';
+        }
+    }
+
+    async loadArticles() {
+        const container = document.getElementById('articlesContainer');
+        if (!container) return;
+
+        try {
+            const res = await fetch('config/home-content.json');
+            if (!res.ok) return;
+            const data = await res.json();
+            
+            if (data.articles) {
+                container.innerHTML = data.articles.map(a => `
+                    <article class="article-card">
+                        <div class="article-content">
+                            <h3>${a.title}</h3>
+                            <p>${a.summary}</p>
+                        </div>
+                    </article>
+                `).join('');
+            }
+        } catch (e) {
+            // Falha silenciosa para não quebrar a página
+        }
+    }
 }
 
-        // 2. Renderiza Artigos
-        if (data.articles && articlesContainer) {
-            articlesContainer.innerHTML = data.articles.map(a => `
-                <article class="article-card">
-                    <div class="article-img-wrapper">
-                        <img src="${a.image}" alt="${a.title}" loading="lazy">
-                        <span class="article-tag">${a.category}</span>
-                    </div>
-                    <div class="article-content">
-                        <span class="article-date">${a.date}</span>
-                        <h3>${a.title}</h3>
-                        <p>${a.summary}</p>
-                        <a href="${a.link}" class="btn-read">Ler Artigo Completo <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            `).join('');
-        }
-
-    } catch (error) {
-        console.error('Erro ao injetar conteúdo dinâmico:', error);
-    }
-});
+document.addEventListener('DOMContentLoaded', () => new HomeEngine());
