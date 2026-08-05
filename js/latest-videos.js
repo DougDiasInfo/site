@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         container.innerHTML = recentVideos.map(video => `
             <div class="video-card" data-id="${video.id}">
                 <div class="video-thumb-wrapper">
-                    <img src="${video.thumb}" alt="${video.title}" loading="lazy">
+                    <img src="${video.thumb}" alt="${video.titulo}" loading="lazy">
                     <div class="play-overlay"><i class="fa-solid fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
                     <span class="video-category">${video.category || 'Tutorial'}</span>
-                    <h3>${video.title}</h3>
+                    <h3>${video.titulo}</h3>
                     <a href="${video.url || 'videos.html'}" class="btn-watch-glow">
                         <span>Assistir Agora</span>
                         <i class="fa-solid fa-chevron-right"></i>
