@@ -12,7 +12,33 @@ class HomeEngine {
         ]);
     }
 
-    
+    async loadLatestVideos() {
+        const container = document.getElementById('latestVideosContainer');
+        if (!container) return;
+
+        try {
+            const res = await fetch('dados/videos.json');
+            if (!res.ok) throw new Error('Falha HTTP');
+            const data = await res.json();
+            
+            const topVideos = data.sort((a, b) => Number(b.id) - Number(a.id)).slice(0, 3);
+            
+            container.innerHTML = topVideos.map(v => `
+                <div class="video-card">
+                    <div class="video-thumb-wrapper">
+                        <img src="${v.thumb}" alt="${v.title}">
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">${v.category || 'Sistema'}</span>
+                        <h3>${v.title}</h3>
+                        <a href="${v.url}" class="btn-watch-glow">Assistir Agora <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            `).join('');
+        } catch (err) {
+            container.innerHTML = '<p class="error-msg">Não foi possível carregar as novidades em vídeo.</p>';
+        }
+    }
 
     async loadArticles() {
         const container = document.getElementById('articlesContainer');
