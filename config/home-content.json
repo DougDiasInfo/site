@@ -2,7 +2,7 @@
   
   "articles": [
     {
-      "id": "a1",
+      "id": "1",
       "title": "O Impacto da Inteligência Artificial nos Diagnósticos Hospitalares",
       "category": "Inovação",
       "date": "04 de Agosto, 2026",
@@ -11,13 +11,22 @@
       "link": "#"
     },
     {
-      "id": "a2",
+      "id": "2",
       "title": "USB Killer, pendrive que frita computadores, começa a ser vendido.",
       "category": "Segurança",
       "date": "07 de Agosto, 2026",
       "image": "https://tm.ibxk.com.br/2016/08/29/29182440716381.jpg?ims=400x0/filters:quality(70)",
       "summary": "O USB Killer funciona 'fritando' as peças de um gadget simplesmente ao ser conectado na porta USB",
       "link": "https://www.tecmundo.com.br/usb/108966-usb-killer-pendrive-frita-computadores-comeca-vendido.htm?utm_source=baixaki.com.br&utm_medium=home&utm_campaign=destaques"
+    },
+    {
+      "id": "3",
+      "title": "O Impacto da Inteligência Artificial nos Diagnósticos Hospitalares",
+      "category": "Inovação",
+      "date": "04 de Agosto, 2026",
+      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+      "summary": "Como algoritmos de aprendizado profundo estão reduzindo o tempo de triagem de exames de imagem e otimizando o atendimento médico.",
+      "link": "#"
     }
   ]
 }
