@@ -1,4 +1,4 @@
-// js/home-loader_.js - Orquestrador Central da Home
+// js/home-loader.js - Orquestrador Central da Home
 class HomeEngine {
     constructor() {
         this.init();
