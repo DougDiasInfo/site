@@ -9,8 +9,176 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/micro-matrix.css">
 </head>
 <body>
+
+
+<!-- SEÇÃO MATRIZ DE INFRAESTRUTURA COMPACTA (6 ITENS) -->
+<section class="section-container">
+    <div class="section-header">
+        <br>
+    </div>
+
+    <div class="micro-matrix-grid">
+        <!-- ITEM 1: HARDWARE & ARMAZENAMENTO -->
+        <div class="micro-card">
+            <div class="micro-card-flipper">
+                <div class="micro-card-front">
+                    <img src="img/showcase/dm.png" alt="Hard Drive" class="card-bg">
+                    <div class="card-overlay-gradient"></div>
+                    <div class="micro-card-header">
+                        <span class="micro-icon"><i class="fa-solid fa-database"></i></span>
+                        <span class="micro-status pulse-green"></span>
+                    </div>
+                    <div class="micro-card-body">
+                        <h4>Manutenção HD</h4>
+                        <span class="micro-tag">Storage SAN</span>
+                    </div>
+                </div>
+                <div class="micro-card-back">
+                    <img src="img/showcase/ori.png" alt="Status Storage" class="card-bg">
+                    <div class="micro-back-info">
+                        <h5>Storage RAID 10</h5>
+                        <p>Recuperação de dados e prevenção de falhas em disco.</p>
+                        <span class="status-badge online">Ativo • 0 Erros</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 2: REDES & CONECTIVIDADE -->
+        <div class="micro-card">
+            <div class="micro-card-flipper">
+                <div class="micro-card-front">
+                    <img src="img/cables-front.jpg" alt="Redes" class="card-bg">
+                    <div class="card-overlay-gradient"></div>
+                    <div class="micro-card-header">
+                        <span class="micro-icon"><i class="fa-solid fa-network-wired"></i></span>
+                        <span class="micro-status pulse-green"></span>
+                    </div>
+                    <div class="micro-card-body">
+                        <h4>Redes & Wi-Fi</h4>
+                        <span class="micro-tag">VLANs UTI</span>
+                    </div>
+                </div>
+                <div class="micro-card-back">
+                    <img src="img/cables-back.jpg" alt="Status Rede" class="card-bg">
+                    <div class="micro-back-info">
+                        <h5>Fibra & Switch</h5>
+                        <p>Isolamento de tráfego crítico para PACS e PEP.</p>
+                        <span class="status-badge online">10 Gbps Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 3: SISTEMAS & PROGRAMAS -->
+        <div class="micro-card">
+            <div class="micro-card-flipper">
+                <div class="micro-card-front">
+                    <img src="img/programs-front.jpg" alt="Sistemas" class="card-bg">
+                    <div class="card-overlay-gradient"></div>
+                    <div class="micro-card-header">
+                        <span class="micro-icon"><i class="fa-solid fa-laptop-code"></i></span>
+                        <span class="micro-status pulse-green"></span>
+                    </div>
+                    <div class="micro-card-body">
+                        <h4>Ótimos Programas</h4>
+                        <span class="micro-tag">Sistemas ERP</span>
+                    </div>
+                </div>
+                <div class="micro-card-back">
+                    <img src="img/programs-back.jpg" alt="Status ERP" class="card-bg">
+                    <div class="micro-back-info">
+                        <h5>Homologação ERP</h5>
+                        <p>Instalação e otimização de bancos Oracle/SQL.</p>
+                        <span class="status-badge version">v4.8 Homologado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 4: WORKSTATIONS -->
+        <div class="micro-card">
+            <div class="micro-card-flipper">
+                <div class="micro-card-front">
+                    <img src="img/pc-front.jpg" alt="Computadores" class="card-bg">
+                    <div class="card-overlay-gradient"></div>
+                    <div class="micro-card-header">
+                        <span class="micro-icon"><i class="fa-solid fa-desktop"></i></span>
+                        <span class="micro-status pulse-green"></span>
+                    </div>
+                    <div class="micro-card-body">
+                        <h4>Estações TI</h4>
+                        <span class="micro-tag">Workstations</span>
+                    </div>
+                </div>
+                <div class="micro-card-back">
+                    <img src="img/pc-back.jpg" alt="Status Workstation" class="card-bg">
+                    <div class="micro-back-info">
+                        <h5>Terminais Clínicos</h5>
+                        <p>Manutenção preventiva de PCs de recepção e triagem.</p>
+                        <span class="status-badge online">100% Operacional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 5: BANCADA DE TESTES -->
+        <div class="micro-card">
+            <div class="micro-card-flipper">
+                <div class="micro-card-front">
+                    <img src="img/tools-front.jpg" alt="Bancada TI" class="card-bg">
+                    <div class="card-overlay-gradient"></div>
+                    <div class="micro-card-header">
+                        <span class="micro-icon"><i class="fa-solid fa-microchip"></i></span>
+                        <span class="micro-status pulse-orange"></span>
+                    </div>
+                    <div class="micro-card-body">
+                        <h4>Bancada Testes</h4>
+                        <span class="micro-tag">Reparos</span>
+                    </div>
+                </div>
+                <div class="micro-card-back">
+                    <img src="img/tools-back.jpg" alt="Status Suporte" class="card-bg">
+                    <div class="micro-back-info">
+                        <h5>Lab de Eletrônica</h5>
+                        <p>Diagnóstico de placas, fontes e nobreaks hospitalares.</p>
+                        <span class="status-badge warning">Em Atendimento</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 6: MANUTENÇÃO GERAL -->
+        <div class="micro-card">
+            <div class="micro-card-flipper">
+                <div class="micro-card-front">
+                    <img src="img/keyboard-front.jpg" alt="Periféricos" class="card-bg">
+                    <div class="card-overlay-gradient"></div>
+                    <div class="micro-card-header">
+                        <span class="micro-icon"><i class="fa-solid fa-headset"></i></span>
+                        <span class="micro-status pulse-green"></span>
+                    </div>
+                    <div class="micro-card-body">
+                        <h4>Suporte Geral</h4>
+                        <span class="micro-tag">24/7 Ativo</span>
+                    </div>
+                </div>
+                <div class="micro-card-back">
+                    <img src="img/keyboard-back.jpg" alt="Status Chamados" class="card-bg">
+                    <div class="micro-back-info">
+                        <h5>Helpdesk Remoto</h5>
+                        <p>Atendimento imediato para abertura de chamados técnicos.</p>
+                        <span class="status-badge online">SLA &lt; 15 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Canvas de Partículas Neural Mesh -->
     <canvas id="particlesCanvas"></canvas>
 
@@ -140,5 +308,7 @@
     <script src="js/menu.js" defer></script>
     <script src="js/home-loader.js" defer></script>
     <script src="js/latest-videos.js" defer></script>
+    <script src="js/compact-dock-gsap.js" defer></script>
+    <script src="js/micro-matrix-gsap.js" defer></script>
 </body>
 </html>
