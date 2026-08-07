@@ -1,0 +1,166 @@
+/* CONTAINER GRID COMPACTO DE 6 COLUNAS */
+.micro-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 Colunas lado a lado */
+    gap: 12px;
+    width: 100%;
+    perspective: 1000px; /* Habilita profundidade 3D */
+    box-sizing: border-box;
+}
+
+/* RESPONSIVIDADE PARA TELAS MENORES */
+@media (max-width: 1200px) {
+    .micro-matrix-grid { grid-template-columns: repeat(3, 1fr); } /* 3x2 */
+}
+@media (max-width: 640px) {
+    .micro-matrix-grid { grid-template-columns: repeat(2, 1fr); } /* 2x3 */
+}
+
+/* MICRO-CARD BASE COM DIMENSÕES REDUZIDAS */
+.micro-card {
+    height: 145px; /* Altura compacta */
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(18, 18, 18, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.micro-card:hover {
+    border-color: #ff6b1a; /* Brilho de acento laranja no hover */
+    box-shadow: 0 6px 25px rgba(255, 107, 26, 0.25);
+}
+
+/* EFEITO FLIP 3D */
+.micro-card-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.micro-card:hover .micro-card-flipper {
+    transform: rotateY(180deg);
+}
+
+.micro-card-front, .micro-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* IMAGENS DE FUNDO COM FIT */
+.card-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.card-overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 20%, transparent 80%);
+    z-index: 2;
+}
+
+/* CONTEÚDO DA FRENTE */
+.micro-card-header {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.micro-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background: rgba(255, 107, 26, 0.2);
+    border: 1px solid rgba(255, 107, 26, 0.4);
+    color: #ff6b1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.micro-card-body {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    z-index: 3;
+}
+
+.micro-card-body h4 {
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.micro-tag {
+    font-size: 0.65rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* CONTEÚDO DO VERSO (EXIBIDO NO HOVER) */
+.micro-card-back {
+    transform: rotateY(180deg);
+    background: #0a0a0a;
+}
+
+.micro-back-info {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: rgba(8, 8, 8, 0.92);
+    backdrop-filter: blur(6px);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.micro-back-info h5 {
+    color: #ff6b1a;
+    font-size: 0.8rem;
+    margin: 0 0 4px 0;
+}
+
+.micro-back-info p {
+    color: #cccccc;
+    font-size: 0.68rem;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+}
+
+.status-badge {
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.status-badge.online { background: rgba(0, 210, 106, 0.2); color: #00d26a; border: 1px solid rgba(0, 210, 106, 0.4); }
+.status-badge.warning { background: rgba(255, 107, 26, 0.2); color: #ff6b1a; border: 1px solid rgba(255, 107, 26, 0.4); }
+.status-badge.version { background: rgba(0, 168, 255, 0.2); color: #00a8ff; border: 1px solid rgba(0, 168, 255, 0.4); }
