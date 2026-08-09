@@ -161,6 +161,28 @@
     white-space: nowrap;
 }
 
+/* CLASSE DE ENVOLTÓRIO DA SEÇÃO DA BARRA */
+.desktop-only-showcase {
+    display: block;
+    width: 100%;
+}
+
+/* 1. MEDIA QUERY POR LARGURA DE TELA (PADRÃO BREAKPOINT MOBILE) */
+@media screen and (max-width: 768px) {
+    .desktop-only-showcase {
+        display: none !important; /* Desativa a exibição e o fluxo de layout no mobile */
+    }
+}
+
+/* 2. MEDIA QUERY REFINADA POR CAPACIDADE DE PONTEIRO (PREVINE ERROS EM TABLETS TOUCH) */
+@media (pointer: coarse) {
+    /* Dispositivos onde a entrada primária é o toque (finger/touch) não possuem 'hover' nativo */
+    .desktop-only-showcase {
+        display: none !important;
+    }
+}
+
+
 .status-badge.online { background: rgba(0, 210, 106, 0.2); color: #00d26a; border: 1px solid rgba(0, 210, 106, 0.4); }
 .status-badge.warning { background: rgba(255, 107, 26, 0.2); color: #ff6b1a; border: 1px solid rgba(255, 107, 26, 0.4); }
 .status-badge.version { background: rgba(0, 168, 255, 0.2); color: #00a8ff; border: 1px solid rgba(0, 168, 255, 0.4); }
