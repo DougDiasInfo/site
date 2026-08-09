@@ -3,7 +3,7 @@
     "id": "1",
     "titulo": "Treinamento de Higienização de Mãos e Controle de Infecção Hospitalar",
     "link": "https://www.w3schools.com/html/mov_bbb.mp4",
-    "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5ADwqK7ZRflK1uoEbcm1VKPexA3HJjpmJlFU-So-0g&s=10" ,
+    "thumb":<iframe src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5ADwqK7ZRflK1uoEbcm1VKPexA3HJjpmJlFU-So-0g&s=10"></iframe> ,
     "tipo": "Treinamento Interno",
     "palavrasChave": ["higienização", "infecção", "segurança do paciente", "protocolo"]
   },
