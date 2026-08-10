@@ -1,7 +1,7 @@
 /* CONTAINER GRID COMPACTO DE 6 COLUNAS */
 .micro-matrix-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 Colunas lado a lado */
+    grid-template-columns: repeat(7, 1fr); /* 6 Colunas lado a lado */
     gap: 12px;
     width: 100%;
     perspective: 1000px; /* Habilita profundidade 3D */
@@ -73,7 +73,7 @@
 /* CONTEÚDO DA FRENTE */
 .micro-card-header {
     position: absolute;
-    top: 8px;
+    top: 58px;
     left: 8px;
     right: 8px;
     display: flex;
@@ -87,7 +87,7 @@
     height: 26px;
     border-radius: 6px;
     background: rgba(255, 107, 26, 0.2);
-    border: 1px solid rgba(255, 107, 26, 0.4);
+    border: 1px solid rgba(255, 107, 26, 1);
     color: #ff6b1a;
     display: flex;
     align-items: center;
@@ -131,7 +131,7 @@
     inset: 0;
     z-index: 3;
     background: rgba(8, 8, 8, 0.5);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(2px);
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -155,7 +155,6 @@
 
 .status-badge {
     font-size: 0.6rem;
-    font-weight: 800;
     padding: 2px 6px;
     border-radius: 6px;
     white-space: nowrap;
