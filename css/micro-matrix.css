@@ -130,7 +130,7 @@
     position: absolute;
     inset: 0;
     z-index: 3;
-    background: rgba(8, 8, 8, 0.92);
+    background: rgba(8, 8, 8, 0.5);
     backdrop-filter: blur(6px);
     padding: 10px;
     display: flex;
