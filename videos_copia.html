@@ -2,51 +2,97 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Central de Vídeos - HealthTech Hub</title>
-    <!-- CSS principal adaptado com o visual Dark/Orange modernizado -->
+    
+    <!-- CSS Unificado e Específico -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/videos.css">
 </head>
 <body>
-    <header>
-        <img src="img/logo.png" class="logo" alt="HealthTech Logo" onerror="this.style.display='none'">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="programas.html">Programas</a>
-            <a href="downloads.html">Downloads</a>
-            <a href="videos.html" class="active">Vídeos</a>
-            <a href="contato.html">Contato</a>
-        </nav>
+    <!-- Canvas de Partículas em Segundo Plano -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <nav class="floating-dock">
+    <a href="index.html" class="dock-item active">
+        <i class="fa-solid fa-house"></i>
+        <span class="dock-text">Home</span>
+    </a>
+    <a href="programas.html" class="dock-item">
+        <i class="fa-solid fa-server"></i>
+        <span class="dock-text">Sistemas</span>
+    </a>
+    <a href="downloads.html" class="dock-item">
+        <i class="fa-solid fa-box-archive"></i>
+        <span class="dock-text">Baixar</span>
+    </a>
+    <a href="videos.html" class="dock-item">
+        <i class="fa-solid fa-play"></i>
+        <span class="dock-text">Vídeos</span>
+    </a>
+    <a href="contato.html" class="dock-item">
+        <i class="fa-solid fa-headset"></i>
+        <span class="dock-text">Suporte</span>
+    </a>
+</nav>
+
+<!-- A Logo agora fica isolada e absoluta no canto superior esquerdo -->
+<div class="brand-corner">
+    <img src="img/logo.png" class="logo" alt="DM Informática">
+    <span class="status-dot pulse-green"></span>
+</div>
     </header>
 
-   <main class="page">
-    <h1>Central de <span>Vídeos</span></h1>
+    <main class="page">
+        <!-- Banner de Título com Glassmorphism -->
+        <section class="video-hero-glass">
+            <div class="badge-tech">
+                <i class="fa-solid fa-clapperboard"></i> Treinamentos & Capacitação Clínica
+            </div>
+            <h1>Central de <span>Vídeos</span></h1>
+            <p>Acesse tutoriais de operação, protocolos de integração de sistemas e treinamentos em vídeo de alta definição.</p>
+        </section>
 
-    <div class="filter-wrapper">
-        <input 
-            id="buscaVideo"
-            class="busca"
-            placeholder="🔍 Pesquisar vídeos..."
-            type="text"
-        >
+        <!-- Contêiner de Filtros Otimizado para Mobile -->
+        <div class="filter-wrapper">
+            <div class="input-search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input 
+                    id="buscaVideo"
+                    class="busca"
+                    placeholder="Pesquisar procedimentos, protocolos, módulos..."
+                    type="text"
+                    autocomplete="off"
+                >
+            </div>
 
-        <!-- Dropdown 'Todos os Tipos' perfeitamente visível e estilizado -->
-        <select id="typeFilter" class="select-dark">
-            <option value="">Todas as Categorias</option>
-        </select>
-    </div>
+            <select id="typeFilter" class="select-dark">
+                <option value="">Todas as Categorias</option>
+            </select>
+        </div>
 
-    <div id="contadorVideos" class="contador">
-        Carregando vídeos...
-    </div>
+        <div id="contadorVideos" class="contador">
+            <i class="fa-solid fa-spinner fa-spin"></i> Indexando tutoriais médicos...
+        </div>
 
-    <!-- Grid para injeção de cards via JS -->
+        <!-- Grid de Vídeos Responsivo -->
         <section class="video-grid" id="videoGrid">
-      <!-- Cards serão injetados aqui dinamicamente pelo JS -->
-    </section>
-</main>
-	
-
+            <!-- Injetado dinamicamente via js/videos.js -->
+        </section>
+    </main>
+<!-- FAB WhatsApp - Suporte de TI -->
+<a href="https://wa.me/5531999291567?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20em%20um%20computador." 
+   class="whatsapp-fab" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   title="Solicitar Suporte via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+    <!-- Scripts da Aplicação -->
+    <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
     <script src="js/videos.js"></script>
 </body>
 </html>
