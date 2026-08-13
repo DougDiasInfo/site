@@ -90,6 +90,29 @@
    title="Solicitar Suporte via WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
+    <!-- ESTRUTURA DO MODAL REPRODUTOR DE VÍDEO (ADICIONAR ANTES DO </BODY>) -->
+<div id="videoModal" class="video-modal-overlay" aria-hidden="true" role="dialog">
+    <div class="video-modal-content">
+        <button id="closeModalBtn" class="modal-close-btn" aria-label="Fechar Vídeo">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="iframe-responsive-box">
+            <iframe 
+                id="modalIframe" 
+                src="" 
+                title="Reprodutor de Treinamento"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="modal-video-info">
+            <span id="modalVideoBadge" class="categoria-badge">Geral</span>
+            <h3 id="modalVideoTitle">Título do Treinamento</h3>
+        </div>
+    </div>
+</div>
     <!-- Scripts da Aplicação -->
     <script src="js/script.js"></script>
     <script src="js/menu.js"></script>
