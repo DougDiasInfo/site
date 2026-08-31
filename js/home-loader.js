@@ -47,14 +47,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <span class="article-tag">${article.category || 'Inovação'}</span>
                 </div>
                 <div class="article-content">
-                    <span class="article-date">${article.date || ''}</span>
-                    <h3>${article.title}</h3>
-                    <p>${article.summary || ''}</p>
-                    <a href="${article.link || '#'}" class="btn-read">
-                        <span>Ler Artigo Completo</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
+    <span class="article-date">${article.date || ''}</span>
+    <h3>${article.title}</h3>
+    <p>${article.summary || ''}</p>
+
+    <a href="${article.link || '#'}"
+       class="btn-read"
+       target="_blank"
+       rel="noopener noreferrer">
+        <span>Ler Artigo Completo</span>
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+</div>
             </article>
         `).join('');
     }
